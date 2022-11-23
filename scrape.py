@@ -8,7 +8,7 @@ def pyJobnumberSearch(word):
     soup = BeautifulSoup(page.content, 'html.parser')
     phrase_extract=soup.select_one('.search-total-label')
     all_words = phrase_extract.text.split()
-    print(all_words[0])
+    return all_words[0]
 
 pyJobnumberSearch('sort=modified-&start=1&q=')
 

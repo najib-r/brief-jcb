@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2 px solid blanchedalmond;
+    background-color: burlywood;
+    padding:20px;
+    margin-top: 20%;
+    border-radius: 3px;
+}
