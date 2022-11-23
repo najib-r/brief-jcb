@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    default = 'sort=modified-&start=1&q='
+    default = 'sort=modified-&q=&delta=75'
     number = pyJobnumberSearch(default)
     jobs = pyJobdetailsFetch(default)
     return render_template("index.html", number=number, jobs=jobs)

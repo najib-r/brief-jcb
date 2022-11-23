@@ -11,7 +11,6 @@ def pyJobnumberSearch(word):
     all_words = phrase_extract.text.split()
     return all_words[0]
 
-pyJobnumberSearch('sort=modified-&start=1&q=')
 
 def pyJobdetailsFetch(word):   
     jobs={}
@@ -31,6 +30,17 @@ def pyJobdetailsFetch(word):
     jobs = {jobs_keys[i]: jobs_values[i] for i in range(len(jobs_keys))}
     return jobs
     
+def pyJoblinksfetch(word):   
+    links=[]
+    address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+    newword=address+word
+    page=requests.get(newword)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    phrase_extract=soup.findAll('a')
+    for tag in phrase_extract:
+        if tag.parent.name == 'h4':
+            links.append("https://jobcentrebrunei.gov.bn" + tag["href"])
+    return links
 
-pyJobdetailsFetch('sort=modified-&start=1&q=')
+
 
