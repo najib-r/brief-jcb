@@ -13,7 +13,7 @@ def pyJobnumberSearch(word):
 
 pyJobnumberSearch('sort=modified-&start=1&q=')
 
-def pyJobnumberSearch2(word):   
+def pyJobdetailsFetch(word):   
     jobs={}
     jobs_keys=[]
     jobs_values=[]
@@ -29,9 +29,8 @@ def pyJobnumberSearch2(word):
         jobs_values.append(tag.text.strip())
 
     jobs = {jobs_keys[i]: jobs_values[i] for i in range(len(jobs_keys))}
-    print(jobs)
+    return jobs
     
 
-
-pyJobnumberSearch2('sort=modified-&start=1&q=')
+pyJobdetailsFetch('sort=modified-&start=1&q=')
 

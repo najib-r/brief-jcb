@@ -2,15 +2,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
 }
 
-.square {
+header {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: lightgreen;
+}
+
+.content {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2 px solid blanchedalmond;
     background-color: burlywood;
-    padding:20px;
-    margin-top: 20%;
+    padding:10px;
+    margin-top: 10%;
     border-radius: 3px;
 }
