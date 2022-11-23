@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Roboto:wght@400;700&display=swap');
+
 body {
+    font-family: 'Quicksand', 'Roboto', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 0;
+    padding: 1rem;
 }
 
 header {
     width: 100%;
-    padding: 1rem 0;
+    padding: 1rem;
     background-color: lightgreen;
 }
 
@@ -25,6 +28,16 @@ header {
     border-radius: 3px;
 }
 
-a {
+#mylink {
     padding-left:0.1rem;
+}
+
+.links, .links:hover, .links:visited, .links:active {
+    color:inherit;
+    text-decoration:none;
+}
+
+h2 {
+    color:rgb(91, 142, 15);
+    font-weight: 600;
 }

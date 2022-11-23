@@ -27,7 +27,14 @@ def pyJobdetailsFetch(word):
     for tag in salary_extract:
         jobs_values.append(tag.text.strip())
 
-    jobs = {jobs_keys[i]: jobs_values[i] for i in range(len(jobs_keys))}
+    dupe = 0
+
+    for i in range(len(jobs_keys)):
+        if jobs_keys[i] in jobs.keys():
+            dupe += 1
+            jobs[jobs_keys[i] + f" ({dupe})"] = jobs_values[i]
+        jobs[jobs_keys[i]] = jobs_values[i]
+        
     return jobs
     
 def pyJoblinksfetch(word):   
@@ -42,5 +49,6 @@ def pyJoblinksfetch(word):
             links.append("https://jobcentrebrunei.gov.bn" + tag["href"])
     return links
 
+print(pyJobdetailsFetch("sort=modified-&q=&delta=75"))
 
 

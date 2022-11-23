@@ -1,13 +1,10 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    quickJCB home
+    briefJCB
 {% endblock %}
 
 {% block main %}
-    <div class="number">
-        {{ number }}
-    </div>
     <table>
         <thead>
             <tr>
@@ -18,7 +15,7 @@
         <tbody>
             {% for job in jobs %}
             <tr>
-                <td>{{ job }}</td>
+                <td><a href="{{ links[loop.index0] }}" class="links" target="_blank" rel="noopener noreferrer">{{ job }}</a></td>
                 <td>{{ jobs[job] }}</td>
             </tr>
             {% endfor %}
