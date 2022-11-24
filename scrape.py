@@ -49,6 +49,5 @@ def pyJoblinksfetch(word):
             links.append("https://jobcentrebrunei.gov.bn" + tag["href"])
     return links
 
-print(pyJobdetailsFetch("sort=modified-&q=&delta=75"))
 
 
