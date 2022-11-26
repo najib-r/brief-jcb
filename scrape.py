@@ -49,5 +49,20 @@ def pyJoblinksfetch(word):
             links.append("https://jobcentrebrunei.gov.bn" + tag["href"])
     return links
 
+def pyJobcompanyNames(word):
+    names = []
+    address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+    newword=address+word
+    page=requests.get(newword)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    phrase_extract=soup.findAll('a')
+    for tag in phrase_extract:
+        if tag.parent.name == 'p':
+            names.append(tag.text.strip())
+    names = names[2:-3]
+    return names
+
+    
+
 
 

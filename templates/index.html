@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Job position</th>
+                <th>Company</th>
                 <th>Salary</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
             {% for job in jobs %}
             <tr>
                 <td><a href="{{ links[loop.index0] }}" class="links" target="_blank" rel="noopener noreferrer">{{ job }}</a></td>
+                <td>{{ names[loop.index0] }}</td>
                 <td>{{ jobs[job] }}</td>
             </tr>
             {% endfor %}
