@@ -3,16 +3,16 @@ import requests
 import re
 
 # Get number of search results
-def pyJobnumberSearch(word):   
-    address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
-    newword=address+word
-    page=requests.get(newword)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    # Get element with class of search-total-label (found through browser dev tools)
-    phrase_extract=soup.select_one('.search-total-label')
-    # Get the text and remove whitespace
-    all_words = phrase_extract.text.split()
-    return all_words[0]
+# def pyJobnumberSearch(word):   
+#     address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+#     newword=address+word
+#     page=requests.get(newword)
+#     soup = BeautifulSoup(page.content, 'html.parser')
+#     # Get element with class of search-total-label (found through browser dev tools)
+#     phrase_extract=soup.select_one('.search-total-label')
+#     # Get the text and remove whitespace
+#     all_words = phrase_extract.text.split()
+#     return all_words[0]
 
 # Get job details on the page
 def pyJobdetailsFetch(word):   
