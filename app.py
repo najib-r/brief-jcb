@@ -13,4 +13,4 @@ def index():
     return render_template("index.html", jobs=jobs, links=links, names=names)
 
 if __name__ == '__main__':
-    app.run()
+    app.run() 
