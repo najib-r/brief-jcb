@@ -32,7 +32,7 @@ def pyJobdetailsFetch(word):
     for tag in phrase_extract:
         jobs_keys.append(tag.text.strip())
     for tag in salary_extract:
-        jobs_values.append(tag.text.strip())
+        jobs_values.append(tag.text.strip().removesuffix(" Monthly"))
     # Handle duplicate job titles as dictionaries can't have same keys
     dupe = 0
     # Iterate through job titles
@@ -41,8 +41,8 @@ def pyJobdetailsFetch(word):
         if jobs_keys[i] in jobs.keys():
             # increment dupe
             dupe += 1
-            # add a (dupe) to the end of the string, and add it to the dictionary
-            jobs[jobs_keys[i] + f" ({dupe})"] = jobs_values[i]
+            # add (dupe) empty spaces to the end of the string, and add it to the dictionary
+            jobs[jobs_keys[i] + (dupe * " ")] = jobs_values[i]
         # else, it can be added directly without changing
         jobs[jobs_keys[i]] = jobs_values[i]
     return jobs
@@ -83,7 +83,7 @@ def pyJobcompanyNames(word):
     names = names[2:-3]
     return names
 
-    
+
 
 
 
