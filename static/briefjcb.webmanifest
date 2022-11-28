@@ -1,6 +1,6 @@
 {
     "name": "briefJCB Progressive Web App",
-    "short_name": "brief-jcb",
+    "short_name": "briefJCB",
     "description": "Progressive Web App that lists 75 most recent job vacancies on jobcentrebrunei",
     "icons": [
         {
@@ -30,5 +30,5 @@
     "display": "standalone",
     "theme_color": "#ffffff",
     "orientation": "portrait",
-    "background_color": "#ffffff"
+    "background_color": "#96d35f"
   }
