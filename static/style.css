@@ -6,7 +6,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0.8rem;
 }
 
 header {
@@ -20,12 +20,6 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.number {
-    border: 2 px solid blanchedalmond;
-    background-color: burlywood;
-    border-radius: 3px;
 }
 
 #mylink {
@@ -43,10 +37,11 @@ h2 {
 }
 
 th, td {
-    max-width: 350px;
+    max-width: 280px;
 }
 
 th {
     text-align: left;
 }
+
 
