@@ -73,7 +73,7 @@ table {
     height: 1.5em;
 }
 
-@media(hover: hover) and (pointer: fine) {
+@media (min-width:1025px) {
     tbody > tr:hover {
         background: #cdfeaa;
     }
