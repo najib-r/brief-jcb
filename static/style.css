@@ -44,4 +44,8 @@ th {
     text-align: left;
 }
 
+td {
+    font-size: calc(0.5rem + 0.55vmin);
+}
+
 
