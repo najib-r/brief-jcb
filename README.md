@@ -6,4 +6,4 @@
 - ~~Add links to jcb page for each job~~
 - Search for keywords (job position and company)
 - ~~Remove repetitive "Monthly"~~
-- responsive font size for mobile and desktop
+- ~~Responsive font size for mobile and desktop~~

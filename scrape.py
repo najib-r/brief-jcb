@@ -17,15 +17,15 @@ import re
 # Get job details on the page
 def pyJobdetailsFetch(word):   
     # initialise dictionary and lists
-    jobs={}
-    jobs_keys=[]
-    jobs_values=[]
-    address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
-    newword=address+word
-    page=requests.get(newword)
+    jobs = {}
+    jobs_keys = []
+    jobs_values = []
+    address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+    newword = address+word
+    page = requests.get(newword)
     soup = BeautifulSoup(page.content, 'html.parser')
     # Get all h4 elements which are the job titles
-    phrase_extract=soup.findAll('h4')
+    phrase_extract = soup.findAll('h4')
     # Get all job salaries through regex
     salary_extract = soup.findAll('li', text=re.compile('^\$.*(Daily|Monthly)$'))
     # Add the job titles and salaries to lists
@@ -48,15 +48,15 @@ def pyJobdetailsFetch(word):
     return jobs
     
 #  Get all links to redirect to job page
-def pyJoblinksfetch(word):   
+def pyJoblinksFetch(word):   
     # initialise links list
-    links=[]
-    address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
-    newword=address+word
-    page=requests.get(newword)
+    links = []
+    address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+    newword = address+word
+    page = requests.get(newword)
     soup = BeautifulSoup(page.content, 'html.parser')
     # find all a tags with hyperlinks
-    phrase_extract=soup.findAll('a')
+    phrase_extract = soup.findAll('a')
     for tag in phrase_extract:
         # if parent is a h4 (job title), it means it is a link to a job page
         if tag.parent.name == 'h4':
@@ -68,9 +68,9 @@ def pyJoblinksfetch(word):
 def pyJobcompanyNames(word):
     # initialise names list
     names = []
-    address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
-    newword=address+word
-    page=requests.get(newword)
+    address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+    newword = address+word
+    page = requests.get(newword)
     soup = BeautifulSoup(page.content, 'html.parser')
     # get all hyperlinks
     phrase_extract=soup.findAll('a')

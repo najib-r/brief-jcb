@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from scrape import pyJobdetailsFetch, pyJoblinksfetch, pyJobcompanyNames
+from scrape import pyJobdetailsFetch, pyJoblinksFetch, pyJobcompanyNames
 
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     default = 'sort=modified-&q=&delta=75'
     jobs = pyJobdetailsFetch(default)
-    links = pyJoblinksfetch(default)
+    links = pyJoblinksFetch(default)
     names = pyJobcompanyNames(default)
     return render_template("index.html", jobs=jobs, links=links, names=names)
 
