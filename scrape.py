@@ -2,20 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-# Get number of search results
-# def pyJobnumberSearch(word):   
-#     address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
-#     newword=address+word
-#     page=requests.get(newword)
-#     soup = BeautifulSoup(page.content, 'html.parser')
-#     # Get element with class of search-total-label (found through browser dev tools)
-#     phrase_extract=soup.select_one('.search-total-label')
-#     # Get the text and remove whitespace
-#     all_words = phrase_extract.text.split()
-#     return all_words[0]
-
 # Get job details on the page
-def pyJobdetailsFetch(word):   
+def fetch_details(word):   
     # initialise dictionary and lists
     jobs = {}
     jobs_keys = []
@@ -48,7 +36,7 @@ def pyJobdetailsFetch(word):
     return jobs
     
 #  Get all links to redirect to job page
-def pyJoblinksFetch(word):   
+def fetch_links(word):   
     # initialise links list
     links = []
     address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
@@ -65,7 +53,7 @@ def pyJoblinksFetch(word):
     return links
 
 # Get all company names
-def pyJobcompanyNames(word):
+def fetch_companynames(word):
     # initialise names list
     names = []
     address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
@@ -82,6 +70,18 @@ def pyJobcompanyNames(word):
     # remove some links (login/signup) which are not company names
     names = names[2:-3]
     return names
+
+# Get number of search results
+# def pyJobnumberSearch(word):   
+#     address='https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+#     newword=address+word
+#     page=requests.get(newword)
+#     soup = BeautifulSoup(page.content, 'html.parser')
+#     # Get element with class of search-total-label (found through browser dev tools)
+#     phrase_extract=soup.select_one('.search-total-label')
+#     # Get the text and remove whitespace
+#     all_words = phrase_extract.text.split()
+#     return all_words[0]
 
 
 
