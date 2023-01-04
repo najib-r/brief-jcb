@@ -7,9 +7,8 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     default = 'sort=modified-&q=&delta=75'
-    try:
-        jobs = fetch_details(default)
-    except:
+    jobs = fetch_details(default)
+    if jobs == "error":
         return render_template("error.html")
     links = fetch_links(default)
     names = fetch_companynames(default)

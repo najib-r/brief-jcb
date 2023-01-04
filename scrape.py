@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+from urllib.error import HTTPError
+
 
 # Get job details on the page
 def fetch_details(word):   
@@ -9,31 +11,37 @@ def fetch_details(word):
     jobs_keys = []
     jobs_values = []
     address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+    # address = 'https://thiswebsitsijndkjfnsdkfs'
     newword = address+word
-    page = requests.get(newword)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    # Get all h4 elements which are the job titles
-    phrase_extract = soup.findAll('h4')
-    # Get all job salaries through regex
-    salary_extract = soup.findAll('li', text=re.compile('^\$.*(Daily|Monthly)$'))
-    # Add the job titles and salaries to lists
-    for tag in phrase_extract:
-        jobs_keys.append(tag.text.strip())
-    for tag in salary_extract:
-        jobs_values.append(tag.text.strip().removesuffix(" Monthly"))
-    # Handle duplicate job titles as dictionaries can't have same keys
-    dupe = 0
-    # Iterate through job titles
-    for i in range(len(jobs_keys)):
-        # if job title is already in the jobs dictionary
-        if jobs_keys[i] in jobs.keys():
-            # increment dupe
-            dupe += 1
-            # add (dupe) empty spaces to the end of the string, and add it to the dictionary
-            jobs[jobs_keys[i] + (dupe * " ")] = jobs_values[i]
-        # else, it can be added directly without changing
-        jobs[jobs_keys[i]] = jobs_values[i]
-    return jobs
+    try: 
+        page = requests.get(newword)
+        page.raise_for_status()
+    except HTTPError or ConnectionError:
+        return "error"
+    else:     
+        soup = BeautifulSoup(page.content, 'html.parser')
+        # Get all h4 elements which are the job titles
+        phrase_extract = soup.findAll('h4')
+        # Get all job salaries through regex
+        salary_extract = soup.findAll('li', text=re.compile('^\$.*(Daily|Monthly)$'))
+        # Add the job titles and salaries to lists
+        for tag in phrase_extract:
+            jobs_keys.append(tag.text.strip())
+        for tag in salary_extract:
+            jobs_values.append(tag.text.strip().removesuffix(" Monthly"))
+        # Handle duplicate job titles as dictionaries can't have same keys
+        dupe = 0
+        # Iterate through job titles
+        for i in range(len(jobs_keys)):
+            # if job title is already in the jobs dictionary
+            if jobs_keys[i] in jobs.keys():
+                # increment dupe
+                dupe += 1
+                # add (dupe) empty spaces to the end of the string, and add it to the dictionary
+                jobs[jobs_keys[i] + (dupe * " ")] = jobs_values[i]
+            # else, it can be added directly without changing
+            jobs[jobs_keys[i]] = jobs_values[i]
+        return jobs
     
 #  Get all links to redirect to job page
 def fetch_links(word):   
