@@ -10,4 +10,4 @@
 - Search for keywords (job position and company)
 - ~~Remove repetitive "Monthly"~~
 - ~~Responsive font size for mobile and desktop~~
-- Render error page when jobcentre is down or under maintenance
+- ~~Render error page when jobcentre is down or under maintenance~~
