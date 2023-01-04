@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-from urllib.error import HTTPError
 
 
 # Get job details on the page
@@ -11,14 +10,7 @@ def fetch_details(word):
     jobs_keys = []
     jobs_values = []
     address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
-    # address = 'https://thiswebsitsijndkjfnsdkfs'
     newword = address+word
-    # try: 
-    #     page = requests.get(newword)
-    #     page.raise_for_status()
-    # except HTTPError or ConnectionError:
-    #     return "error"
-    # else:  
     page = requests.get(newword)
     soup = BeautifulSoup(page.content, 'html.parser')
     # Get all h4 elements which are the job titles
