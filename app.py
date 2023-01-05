@@ -8,6 +8,8 @@ app = Flask(__name__)
 def index():
     default = 'sort=modified-&q=&delta=75'
     jobs = fetch_details(default)
+    if jobs == "error":
+        return render_template("error.html")
     links = fetch_links(default)
     names = fetch_companynames(default)
     return render_template("index.html", jobs=jobs, links=links, names=names)

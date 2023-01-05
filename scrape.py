@@ -11,7 +11,10 @@ def fetch_details(word):
     jobs_values = []
     address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
     newword = address+word
-    page = requests.get(newword)
+    try:
+        page = requests.get(newword)
+    except requests.exceptions.ConnectionError:
+        return "error"
     soup = BeautifulSoup(page.content, 'html.parser')
     # Get all h4 elements which are the job titles
     phrase_extract = soup.findAll('h4')
@@ -83,8 +86,6 @@ def fetch_companynames(word):
 #     # Get the text and remove whitespace
 #     all_words = phrase_extract.text.split()
 #     return all_words[0]
-
-
 
 
 
