@@ -11,3 +11,4 @@
 - ~~Remove repetitive "Monthly"~~
 - ~~Responsive font size for mobile and desktop~~
 - ~~Render error page when jobcentre is down or under maintenance~~
+- Light/Dark theme based on device/browser theme
