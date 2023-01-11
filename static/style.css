@@ -97,14 +97,14 @@ table {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #121212;
-        color: rgb(202, 193, 193);
+        color: rgb(223, 216, 216);
         opacity: 87%;
     }
     a:link {
-        color: #4c9b0b;
+        color: #60bb15;
     }
     a:visited {
-        color: #7422c1;
+        color: #822fcf;
     }
     th, td {
         border-bottom: 0.8px solid rgb(123, 119, 119);
