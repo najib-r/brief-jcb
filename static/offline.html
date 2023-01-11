@@ -5,13 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Simple page showing 75 most recent job vacancies on jcb.">
-    <link rel="stylesheet" href="/static/style.css"> 
-    <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
-    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta id="themeColor" name="theme-color" content="#ffffff">
-    <link rel="manifest" href="/static/briefjcb.webmanifest">
-    <script src="/static/js/script.js" defer></script>
+    <style>
+        body {
+            font-family: 'Quicksand', 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0.8rem;
+        }
+
+        header {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        h2 {
+            color:rgb(91, 142, 15);
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 5px;
+        }
+
+        .error {
+            color: red;
+            font-weight: 600;
+        }
+    </style>
     <title>briefJCB-offline!</title>
 </head>
 <body>
