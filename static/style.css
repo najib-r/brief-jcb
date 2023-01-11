@@ -12,7 +12,6 @@ body {
 header {
     width: 100%;
     padding: 1rem;
-    background-color: lightgreen;
 }
 
 .content {
@@ -33,7 +32,6 @@ h2 {
 
 th, td {
     max-width: 280px;
-    border-bottom: 1px solid #ddd;
 }
 
 th {
@@ -79,20 +77,51 @@ table {
 }
 
 @media (min-width:1025px) {
-    tbody > tr:hover {
-        background: #cdfeaa;
-    }
     a:active {
         border-bottom: 1px solid rgb(174, 174, 174);
     }
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
+    a:link {
+        color: #265301;
+    }
+    a:visited {
+        color: #551A8B;
+    }
+    th, td {
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
     body {
         background-color: #121212;
-        color: rgb(217, 212, 212);
+        color: rgb(202, 193, 193);
+        opacity: 87%;
     }
-} */
+    a:link {
+        color: #4c9b0b;
+    }
+    a:visited {
+        color: #7422c1;
+    }
+    th, td {
+        border-bottom: 0.8px solid rgb(123, 119, 119);
+    }
+}
+
+@media (prefers-color-scheme: light) and (min-width: 1025px) {
+    tbody > tr:hover {
+        background: #cdfeaa;
+    }
+}
+
+@media (prefers-color-scheme: dark) and (min-width: 1025px) {
+    tbody > tr:hover {
+        background: #514f4f;
+    }
+}
 
 
 
