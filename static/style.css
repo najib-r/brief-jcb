@@ -73,6 +73,11 @@ table {
     height: 1.5em;
 }
 
+.error {
+    color: red;
+    font-weight: 600;
+}
+
 @media (min-width:1025px) {
     tbody > tr:hover {
         background: #cdfeaa;
@@ -82,10 +87,12 @@ table {
     }
 }
 
-.error {
-    color: red;
-    font-weight: 600;
-}
+/* @media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: rgb(217, 212, 212);
+    }
+} */
 
 
 
