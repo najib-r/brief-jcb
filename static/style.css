@@ -98,13 +98,13 @@ table {
     body {
         background-color: #121212;
         color: rgb(223, 216, 216);
-        opacity: 87%;
+        opacity: 90%;
     }
     a:link {
-        color: #60bb15;
+        color: #6cc721;
     }
     a:visited {
-        color: #822fcf;
+        color: #8b3ad6;
     }
     th, td {
         border-bottom: 0.8px solid rgb(123, 119, 119);
