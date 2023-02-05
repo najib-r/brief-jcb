@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     default = 'sort=modified-&q=&delta=75'
     jobs = fetch_details(default)
-    if jobs == "error":
+    if jobs == "error" or len(jobs) == 0:
         return render_template("error.html")
     else:
         links = fetch_links(default)
