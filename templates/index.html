@@ -14,11 +14,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for job in jobs %}
+            {% for name in names %}
             <tr>
-                <td><a href="{{ links[loop.index0] }}" class="links" target="_blank" rel="noopener noreferrer">{{ job }}</a></td>
-                <td>{{ names[loop.index0] }}</td>
-                <td>{{ jobs[job] }}</td>
+                <td><a href="{{ links[loop.index0] }}" class="links" target="_blank" rel="noopener noreferrer">{{ name }}</a></td>
+                <td>{{ companies[loop.index0] }}</td>
+                <td>{{ salaries[loop.index0] }}</td>
             </tr>
             {% endfor %}
         </tbody>

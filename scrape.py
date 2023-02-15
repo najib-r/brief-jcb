@@ -6,9 +6,11 @@ import re
 # Get job details on the page
 def fetch_details(word):   
     # initialise dictionary and lists
-    jobs = {}
-    jobs_keys = []
-    jobs_values = []
+    jobs = []
+    names = []
+    links = []
+    # jobs_keys = []
+    # jobs_values = []
     address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
     newword = address+word
     try:
@@ -20,23 +22,41 @@ def fetch_details(word):
     phrase_extract = soup.findAll('h4')
     # Get all job salaries through regex
     salary_extract = soup.findAll('li', text=re.compile('^\$.*(Daily|Monthly)$'))
-    # Add the job titles and salaries to lists
-    for tag in phrase_extract:
-        jobs_keys.append(tag.text.strip())
-    for tag in salary_extract:
-        jobs_values.append(tag.text.strip().removesuffix(" Monthly"))
+
+     # get all hyperlinks
+    phrase_extract2=soup.findAll('a')
+    for tag in phrase_extract2:
+        # if parent is a p, then it is a company name(some exceptions)
+        if tag.parent.name == 'p':
+            # add company name to the list
+            names.append(tag.text.strip())
+    # remove some links (login/signup) which are not company names
+    names = names[2:-3]
+
+    # find all a tags with hyperlinks
+    phrase_extract3 = soup.findAll('a')
+    for tag in phrase_extract3:
+        # if parent is a h4 (job title), it means it is a link to a job page
+        if tag.parent.name == 'h4':
+            # Add the link to the list
+            links.append("https://jobcentrebrunei.gov.bn" + tag["href"])
+
+    for job, salary, company, link in  zip(phrase_extract, salary_extract, names, links):
+        jobdict = {'name': job.text.strip(),  'salary': salary.text.strip().removesuffix("Monthly"), 'company': company, 'link': link}
+        jobs.append(jobdict)
+
     # Handle duplicate job titles as dictionaries can't have same keys
-    dupe = 0
+    # dupe = 0
     # Iterate through job titles
-    for i in range(len(jobs_keys)):
-        # if job title is already in the jobs dictionary
-        if jobs_keys[i] in jobs.keys():
-            # increment dupe
-            dupe += 1
-            # add (dupe) empty spaces to the end of the string, and add it to the dictionary
-            jobs[jobs_keys[i] + (dupe * " ")] = jobs_values[i]
-        # else, it can be added directly without changing
-        jobs[jobs_keys[i]] = jobs_values[i]
+    # for i in range(len(jobs_keys)):
+    #     # if job title is already in the jobs dictionary
+    #     if jobs_keys[i] in jobs.keys():
+    #         # increment dupe
+    #         dupe += 1
+    #         # add (dupe) empty spaces to the end of the string, and add it to the dictionary
+    #         jobs[jobs_keys[i] + (dupe * " ")] = jobs_values[i]
+    #     # else, it can be added directly without changing
+    #     jobs[jobs_keys[i]] = jobs_values[i]
     return jobs
     
 #  Get all links to redirect to job page
@@ -86,6 +106,4 @@ def fetch_companynames(word):
 #     # Get the text and remove whitespace
 #     all_words = phrase_extract.text.split()
 #     return all_words[0]
-
-
 
