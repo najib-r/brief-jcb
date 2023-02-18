@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from scrape import fetch_details, fetch_links, fetch_companynames
+from scrape import fetch_details
 
 
 app = Flask(__name__)
@@ -11,8 +11,6 @@ def index():
     if jobs == "error" or len(jobs) == 0:
         return render_template("error.html")
     else:
-        # links = fetch_links(default)
-        # names = fetch_companynames(default)
         names = [ sub['name'] for sub in jobs]
         links = [ sub['link'] for sub in jobs]
         salaries = [ sub['salary'] for sub in jobs]
