@@ -11,11 +11,7 @@ def index():
     if jobs == "error" or len(jobs) == 0:
         return render_template("error.html")
     else:
-        names = [ sub['name'] for sub in jobs]
-        links = [ sub['link'] for sub in jobs]
-        salaries = [ sub['salary'] for sub in jobs]
-        companies = [ sub['company'] for sub in jobs]
-        return render_template("index.html", names=names, links=links, salaries=salaries, companies=companies)
+        return render_template("index.html", jobs=jobs)
 
 if __name__ == '__main__':
     app.run() 
