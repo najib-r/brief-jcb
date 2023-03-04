@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-
+from urllib.error import URLError
 
 # Get job details on the page
 def fetch_details(word):   
@@ -15,11 +15,13 @@ def fetch_details(word):
         page = requests.get(newword)
     except requests.exceptions.ConnectionError:
         return "error"
+    except URLError:
+        return "error"
     soup = BeautifulSoup(page.content, 'html.parser')
     # Get all h4 elements which are the job titles
     job_titles = soup.findAll('h4')
     # Get all job salaries through regex
-    job_salaries = soup.findAll('li', text=re.compile('^\$.*(Daily|Monthly)$'))
+    job_salaries = soup.findAll('li', text=re.compile('^\$'))
 
      # get all hyperlinks
     phrase_extract = soup.findAll('a')
