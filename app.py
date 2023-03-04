@@ -13,5 +13,13 @@ def index():
     else:
         return render_template("index.html", jobs=jobs)
 
+@app.route('/sw.js')
+def sw():
+    return app.send_static_file('sw.js')
+
+@app.route('/briefjcb.webmanifest')
+def manifest():
+    return app.send_static_file('briefjcb.webmanifest')
+
 if __name__ == '__main__':
-    app.run() 
+    app.run()
