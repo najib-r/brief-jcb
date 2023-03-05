@@ -13,6 +13,11 @@ if (workbox) {
   ]);
 
   workbox.routing.registerRoute(
+    /\/$/,
+    new workbox.strategies.NetworkFirst()
+  );
+
+  workbox.routing.registerRoute(
     /\.(?:js|css)$/,
     new workbox.strategies.StaleWhileRevalidate()
   );
@@ -22,7 +27,7 @@ if (workbox) {
     new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'google-fonts-stylesheets',
     })
-);
+  );
 
 } else {
   console.log(`Boo! Workbox didn't load 😬`);
