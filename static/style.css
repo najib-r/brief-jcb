@@ -12,6 +12,7 @@ body {
 header {
     width: 100%;
     padding: 1rem;
+    text-align: justify;
 }
 
 .content {
@@ -39,7 +40,7 @@ th {
 }
 
 td {
-    font-size: calc(0.53rem + 0.55vmin);
+    font-size: calc(0.54rem + 0.55vmin);
 }
 
 h3 {
@@ -50,13 +51,6 @@ a {
     text-decoration: none;
 }
 
-a:link {
-    color: #265301;
-}
-
-a:visited {
-    color: #551A8B;
-}
 
 table {
     position: relative;
@@ -90,7 +84,7 @@ table {
         color: #551A8B;
     }
     th, td {
-        border-bottom: 1px solid #ddd;
+        border-bottom: .4px solid #ddd;
     }
 }
 
@@ -100,14 +94,17 @@ table {
         color: rgb(223, 216, 216);
         opacity: 90%;
     }
+    h2 {
+        color: #5cac1b;
+    }
     a:link {
-        color: #6cc721;
+        color: #65bd1d;
     }
     a:visited {
         color: #8b3ad6;
     }
     th, td {
-        border-bottom: 0.8px solid rgb(123, 119, 119);
+        border-bottom: 0.1px solid rgb(57, 56, 56);
     }
 }
 
