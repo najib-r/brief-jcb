@@ -3,17 +3,17 @@ console.log('Hello from sw.js');
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js');
 
 if (workbox) {
-  console.log(`Yay! Workbox is loaded 🎉`);
+  console.log(`Yay! new Workbox is loaded 🎉`);
 
-  workbox.precaching.precacheAndRoute([
-    {
-      "url": "/",
-      "revision": "1"
-    }
-  ]);
+  // workbox.precaching.precacheAndRoute([
+  //   {
+  //     "url": "/",
+  //     "revision": "1"
+  //   }
+  // ]);
 
   workbox.routing.registerRoute(
-    /\/$/,
+    /^\/$/,
     new workbox.strategies.NetworkFirst()
   );
 
