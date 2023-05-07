@@ -16,6 +16,7 @@ body {
 h2 {
     color:rgb(91, 142, 15);
     font-weight: 600;
+    display: inline;
 }
 
 th, td {
@@ -46,7 +47,21 @@ a {
 table {
     position: relative;
 }
+
+#myInput {
+    padding: 5px;
+    color: #9DBFAF;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.25s ease-in-out;
+}
   
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .links::before {
     content: "";
     position: absolute;
@@ -60,6 +75,19 @@ table {
     font-weight: 600;
 }
 
+.box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    padding: 0 0 0 4px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
 @media (min-width:1025px) {
     a:active {
         border-bottom: 1px solid rgb(174, 174, 174);
@@ -68,13 +96,24 @@ table {
 
 @media (prefers-color-scheme: light) {
     a:link {
-        color: #265301;
+        color: rgb(91, 142, 15);
     }
     a:visited {
         color: #551A8B;
     }
     th, td {
         border-bottom: .4px solid #ddd;
+    }
+    #myInput {
+        border: 1px solid black;
+        color: rgb(0, 0, 0);
+    }
+    #myInput:focus {
+        border: 2px solid #cdfeaa;
+        box-shadow: 0px 0px 5px #cdfeaa;
+    }
+    .icon {
+        color: rgb(91, 142, 15);
     }
 }
 
@@ -95,6 +134,18 @@ table {
     }
     th, td {
         border-bottom: 0.1px solid rgb(57, 56, 56);
+    }
+    #myInput {
+        background-color: #514f4f;
+        border: 1px solid white;
+        color: #9DBFAF;
+    }
+    #myInput:focus {
+        border: 2px solid #00B4CC;
+        box-shadow: 0px 0px 5px #00B4CC;
+    }
+    .icon {
+        color: white;
     }
 }
 
