@@ -7,8 +7,10 @@
 ### To-do:
 - ~~Make it installable on android/iOS~~
 - ~~Add links to jcb page for each job~~
-- Search for keywords (job position and company)
+- ~~Search for keywords (job position and company)~~
 - ~~Remove repetitive "Monthly"~~
 - ~~Responsive font size for mobile and desktop~~
 - ~~Render error page when jobcentre is down or under maintenance~~
 - ~~Light/Dark theme based on device/browser theme~~
+- Notify new jobs every interval (daily / weekly)
+- Store all previous jobs in a db and allow users to view them in another page
