@@ -103,7 +103,7 @@ table {
     gap: 1rem;
     padding: 1rem 0;
     position: sticky;
-    top: 15px;
+    top: 0;
     z-index: 1;
 }
 
@@ -114,6 +114,9 @@ table {
 }
 
 @media (prefers-color-scheme: light) {
+    body {
+        background-color: rgb(249, 249, 249);
+    }
     .links:link {
         color: rgb(91, 142, 15);
     }
@@ -139,6 +142,9 @@ table {
     }
     .active {
         background-color: rgb(91, 142, 15);
+    }
+    .pagination {
+        background-color: rgb(249, 249, 249);
     }
 }
 
@@ -177,6 +183,9 @@ table {
     }
     .active {
         background-color: rgb(91, 142, 15);
+    }
+    .pagination {
+        background-color: #121212;
     }
 }
 
