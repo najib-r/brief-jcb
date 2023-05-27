@@ -140,8 +140,13 @@ table {
     .btn {
         background-color: #c5c5c5;
     }
+    .btn:hover {
+        background-color: #d2d1d1;
+    }
     .active {
         background-color: rgb(91, 142, 15);
+        pointer-events: none;
+        cursor: default;
     }
     .pagination {
         background-color: rgb(249, 249, 249);
@@ -181,8 +186,13 @@ table {
     .btn {
         background-color: #514f4f;
     }
+    .btn:hover {
+        background-color: #615e5e;
+    }
     .active {
         background-color: rgb(91, 142, 15);
+        pointer-events: none;
+        cursor: default;
     }
     .pagination {
         background-color: #121212;
