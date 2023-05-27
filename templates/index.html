@@ -1,10 +1,16 @@
 {% extends "layout.html" %}
+{% set active_page = "index" %}
 
 {% block title %}
     briefJCB
 {% endblock %}
 
 {% block main %}
+    <div class="pagination">
+        {% for n in range(page) %}
+            <a {% if (n + 1) == index %} class="active btn" {% endif %} class="btn" href="{{ n + 1 }}">{{ n + 1 }}</a>
+        {% endfor %}
+    </div>
     <table>
         <thead>
             <tr>

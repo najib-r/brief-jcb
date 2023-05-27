@@ -88,17 +88,36 @@ table {
     cursor: pointer;
 }
 
+.btn {
+    border-radius: 7px;
+    padding: 0.5rem 0.7rem;
+}
+
+.btn, .btn:visited, .btn:active {
+    color: inherit;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    position: sticky;
+    top: 15px;
+    z-index: 1;
+}
+
 @media (min-width:1025px) {
-    a:active {
+    .links:active {
         border-bottom: 1px solid rgb(174, 174, 174);
     }
 }
 
 @media (prefers-color-scheme: light) {
-    a:link {
+    .links:link {
         color: rgb(91, 142, 15);
     }
-    a:visited {
+    .links:visited {
         color: #551A8B;
     }
     th, td {
@@ -115,6 +134,12 @@ table {
     .icon {
         color: rgb(91, 142, 15);
     }
+    .btn {
+        background-color: #c5c5c5;
+    }
+    .active {
+        background-color: rgb(91, 142, 15);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -126,10 +151,10 @@ table {
     h2 {
         color: #5cac1b;
     }
-    a:link {
+    .links:link {
         color: #65bd1d;
     }
-    a:visited {
+    .links:visited {
         color: #8b3ad6;
     }
     th, td {
@@ -146,6 +171,12 @@ table {
     }
     .icon {
         color: white;
+    }
+    .btn {
+        background-color: #514f4f;
+    }
+    .active {
+        background-color: rgb(91, 142, 15);
     }
 }
 

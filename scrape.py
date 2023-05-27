@@ -45,7 +45,9 @@ def fetch_details(word):
         jobdict = {'name': job.text.strip(),  'salary': salary.text.strip().removesuffix("Monthly"), 'company': company, 'link': link}
         jobs.append(jobdict)
 
-    return jobs
+    page = soup.select('a.page-link')[-2].text.replace("Page", "")
+
+    return jobs, int(page)
 
     
     
