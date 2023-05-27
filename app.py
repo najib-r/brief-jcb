@@ -30,5 +30,9 @@ def sw():
 def manifest():
     return app.send_static_file('briefjcb.webmanifest')
 
+@app.route('/robots.txt')
+def robots():
+    return app.send_static_file('robots.txt')
+
 if __name__ == '__main__':
     app.run()
