@@ -14,3 +14,5 @@
 - ~~Light/Dark theme based on device/browser theme~~
 - Notify new jobs every interval (daily / weekly)
 - Store all previous jobs in a db and allow users to view them in another page
+- Only re-render table when switching pages
+- Include closing date and employment type for each job
