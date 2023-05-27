@@ -1,5 +1,5 @@
 # briefJCB
-## This app shows the 75 most recent job vacancies from jobcentrebrunei. 
+## This app displays a compact view of all job vacancies on jobcentrebrunei. 
 
 <img src="images/website.png" alt="Picture of website" title="Website picture">
 <img src="images/mobilesite.jpeg" alt="Picture of website on mobile" title="Mobile website picture">
