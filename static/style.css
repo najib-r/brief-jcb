@@ -107,6 +107,14 @@ table {
     z-index: 1;
 }
 
+.link:link {
+    color: #65bd1d;
+}
+
+.link:visited {
+    color: #8b3ad6;
+}
+
 @media (min-width:1025px) {
     .links:active {
         border-bottom: 1px solid rgb(174, 174, 174);
