@@ -91,6 +91,7 @@ table {
 .btn {
     border-radius: 7px;
     padding: 0.5rem 0.7rem;
+    cursor: pointer;
 }
 
 .btn, .btn:visited, .btn:active {
