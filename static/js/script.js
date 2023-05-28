@@ -70,7 +70,6 @@ input.addEventListener('keyup', function(e) {
       }
   }
   if (e.which === 13) {
-    console.log('Enter key pressed.')
     input.blur()
   }
 })
@@ -79,3 +78,9 @@ let search = document.getElementById("searchBtn");
 search.addEventListener('click', () => {
   input.blur();
 })
+
+function startLoading(page) {
+  document.getElementById('loader').style.display = 'flex';
+  document.querySelector('.pagination').style.top = '13px';
+  window.location.href = window.location.origin + `/${page}` ;
+}
