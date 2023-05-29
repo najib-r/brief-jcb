@@ -81,6 +81,13 @@ search.addEventListener('click', () => {
 
 function startLoading(page) {
   document.getElementById('loader').style.display = 'flex';
-  document.querySelector('.pagination').style.top = '13px';
-  window.location.href = window.location.origin + `/${page}` ;
+  document.querySelector('.pagination').style.top = '19px';
+  setTimeout(function () {
+    window.location.href = window.location.origin + `/${page}`;
+  }, 200);
 }
+
+window.onpageshow = function() {
+  document.getElementById('loader').style.display = 'none';
+  document.querySelector('.pagination').style.top = '0';
+};
