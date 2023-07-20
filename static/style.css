@@ -48,6 +48,10 @@ table {
     position: relative;
 }
 
+::placeholder { 
+    opacity: 1; /* Firefox */
+}
+
 #myInput {
     padding: 5px;
     color: #9DBFAF;
@@ -197,6 +201,9 @@ table {
     th, td {
         border-bottom: .4px solid #ddd;
     }
+    ::placeholder { 
+        color: rgb(0, 0, 0);
+    }
     #myInput {
         border: 1px solid black;
         color: rgb(0, 0, 0);
@@ -250,6 +257,9 @@ table {
     }
     th, td {
         border-bottom: 0.1px solid rgb(57, 56, 56);
+    }
+    ::placeholder { 
+        color: #9DBFAF;
     }
     #myInput {
         background-color: #514f4f;
