@@ -11,20 +11,20 @@
             <a {% if (n + 1) == index %} class="active btn" {% endif %} class="btn" onclick="startLoading('{{ n + 1 }}')">{{ n + 1 }}</a>
         {% endfor %}
     </div>
-    <table>
+    <table id="table">
         <thead>
-            <tr>
-                <th>Job position</th>
-                <th>Company</th>
-                <th>Salary</th>
+            <tr class="t-row">
+                <th class="t-header">Job position</th>
+                <th class="t-header">Company</th>
+                <th class="t-header last-col">Salary</th>
             </tr>
         </thead>
-        <tbody id="myTable">
+        <tbody id="t-body">
             {% for job in jobs %}
-            <tr>
-                <td><a href="{{ job['link'] }}" class="links" target="_blank" rel="noopener noreferrer">{{ job['name'] }}</a></td>
-                <td>{{ job['company'] }}</td>
-                <td>{{ job['salary'] }}</td>
+            <tr class="t-row">
+                <td class="t-data"><a href="{{ job['link'] }}" class="links" target="_blank" rel="noopener noreferrer">{{ job['name'] }}</a></td>
+                <td class="t-data">{{ job['company'] }}</td>
+                <td class="t-data">{{ job['salary'] }}</td>
             </tr>
             {% endfor %}
         </tbody>

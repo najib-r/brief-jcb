@@ -13,38 +13,38 @@ body {
     padding-left:0.1rem;
 }
 
-h2 {
+#title {
     color:rgb(91, 142, 15);
     font-weight: 600;
     display: inline;
 }
 
-th, td {
+.t-header, .t-data {
     max-width: 280px;
 }
 
-tr td:last-child {
+.last-col {
     width: 1%;
     white-space: nowrap;
 }
 
-th {
+.t-header {
     text-align: left;
 }
 
-td {
+.t-data {
     font-size: calc(0.54rem + 0.55vmin);
 }
 
-h3 {
+#small {
     font-size: 5px;
 }
 
-a {
+.links, .link {
     text-decoration: none;
 }
 
-table {
+#table {
     position: relative;
 }
 
@@ -93,6 +93,7 @@ table {
 }
 
 .btn {
+    text-decoration: none;
     border-radius: 7px;
     padding: 0.5rem 0.7rem;
     cursor: pointer;
@@ -198,7 +199,7 @@ table {
     .links:visited {
         color: #551A8B;
     }
-    th, td {
+    .t-header, .t-data {
         border-bottom: .4px solid #ddd;
     }
     ::placeholder { 
@@ -246,7 +247,7 @@ table {
         color: rgb(223, 216, 216);
         opacity: 90%;
     }
-    h2 {
+    #title {
         color: #5cac1b;
     }
     .links:link {
@@ -255,7 +256,7 @@ table {
     .links:visited {
         color: #8b3ad6;
     }
-    th, td {
+    .t-header, .t-data {
         border-bottom: 0.1px solid rgb(57, 56, 56);
     }
     ::placeholder { 
@@ -299,18 +300,15 @@ table {
 }
 
 @media (prefers-color-scheme: light) and (min-width: 1025px) {
-    tbody > tr:hover {
+    #t-body > .t-row:hover {
         background: #cdfeaa;
     }
 }
 
 @media (prefers-color-scheme: dark) and (min-width: 1025px) {
-    tbody > tr:hover {
+    #t-body > .t-row:hover {
         background: #514f4f;
     }
 }
-
-
-
 
 
