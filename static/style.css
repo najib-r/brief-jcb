@@ -206,7 +206,7 @@ table {
         box-shadow: 0px 0px 5px #cdfeaa;
     }
     .icon {
-        color: rgb(91, 142, 15);
+        fill: rgb(91, 142, 15);
     }
     .btn {
         background-color: #c5c5c5;
@@ -261,7 +261,7 @@ table {
         box-shadow: 0px 0px 5px #00B4CC;
     }
     .icon {
-        color: white;
+        fill: white;
     }
     .btn {
         background-color: #514f4f;
