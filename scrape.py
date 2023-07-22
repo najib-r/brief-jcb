@@ -14,14 +14,14 @@ def fetch_details(word):
     try:
         page = requests.get(newword)
     except requests.exceptions.ConnectionError:
-        return "error"
+        return "error", "error"
     except URLError:
-        return "error"
+        return "error", "error"
     soup = BeautifulSoup(page.content, 'html.parser')
     # Get all h4 elements which are the job titles
     job_titles = soup.findAll('h4')
-    if not job_titles:
-        return "error"
+    if len(job_titles) == 0:
+        return "error", "error"
     else:
         # Get all job salaries through regex
         job_salaries = soup.findAll('li', text=re.compile('^\$'))
