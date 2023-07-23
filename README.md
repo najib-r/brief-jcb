@@ -12,6 +12,7 @@
 - ~~Responsive font size for mobile and desktop~~
 - ~~Render error page when jobcentre is down or under maintenance~~
 - ~~Light/Dark theme based on device/browser theme~~
+- Fix icon background on ios home screen shortcut
 - Notify new jobs every interval (daily / weekly)
 - Store all previous jobs in a db and allow users to view them in another page
 - Only re-render table when switching pages
