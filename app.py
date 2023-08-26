@@ -7,20 +7,20 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     default = 'q=&delta=200'
-    jobs, page = fetch_details(default)
+    jobs, pagination = fetch_details(default)
     if jobs == "error" or len(jobs) == 0:
         return render_template("error.html")
     else:
-        return render_template("index.html", jobs=jobs, page=page, index=1)
+        return render_template("index.html", jobs=jobs, pagination=pagination, index=1)
     
 @app.route("/<pageno>")
 def show_page(pageno):
     default = 'q=&delta=200'
-    jobs, page = fetch_details(default+'&start='+pageno)
+    jobs, pagination = fetch_details(default+'&start='+pageno)
     if jobs == "error" or len(jobs) == 0:
         return render_template("error.html")
     else:
-        return render_template("index.html", jobs=jobs, page=page, index=int(pageno))
+        return render_template("index.html", jobs=jobs, pagination=pagination, index=int(pageno))
     
 @app.route('/sw.js')
 def sw():

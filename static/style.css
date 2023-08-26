@@ -127,6 +127,12 @@ body {
     z-index: 1;
 }
 
+.pagination-details {
+    display: flex;
+    justify-content: center;
+    font-size: x-small;
+}
+
 .link:link {
     color: #65bd1d;
 }

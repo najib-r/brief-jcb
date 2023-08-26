@@ -9,6 +9,7 @@ def fetch_details(word):
     jobs = []
     companies = []
     links = []
+    pagination = {}
     address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
     newword = address+word
     try:
@@ -46,8 +47,11 @@ def fetch_details(word):
             jobdict = {'name': job.text.strip(),  'salary': salary.text.strip().removesuffix("Monthly"), 'company': company, 'link': link}
             jobs.append(jobdict)
 
-        page = soup.select('a.page-link')[-2].text.replace("Page", "")
+        # Get last page number to find out total no. of pages
+        pagination['pages'] = int(soup.select('a.page-link')[-2].text.replace("Page", ""))
+        # Get total no of jobs available
+        pagination['total'] = soup.select_one('p.pagination-results').text
 
-        return jobs, int(page)
+        return jobs, pagination
 
         

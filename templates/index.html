@@ -7,10 +7,11 @@
 
 {% block main %}
     <div class="pagination">
-        {% for n in range(page) %}
+        {% for n in range(pagination.pages) %}
             <a {% if (n + 1) == index %} class="active btn" {% endif %} class="btn" onclick="startLoading('{{ n + 1 }}')">{{ n + 1 }}</a>
         {% endfor %}
     </div>
+    <div class="pagination-details">{{ pagination.total }}</div>
     <table id="table">
         <thead>
             <tr class="t-row">
