@@ -10,7 +10,7 @@ def fetch_details(word):
     companies = []
     links = []
     pagination = {}
-    address = 'https://jobcentrebrunei.gov.bn/web/guest/search-job?'
+    address = "https://jobcentrebrunei.gov.bn/web/guest/search-job?"
     newword = address+word
     try:
         page = requests.get(newword)
@@ -23,35 +23,40 @@ def fetch_details(word):
     job_titles = soup.findAll('h4')
     if len(job_titles) == 0:
         return "error", "error"
-    else:
-        # Get all job salaries through regex
-        job_salaries = soup.findAll('li', text=re.compile('^\$'))
+    # Get all job salaries through regex
+    job_salaries = soup.findAll('li', text=re.compile('^\$'))
+    if len(job_salaries) == 0:
+        return "error", "error"
 
-        # get all hyperlinks
-        phrase_extract = soup.findAll('a')
-        for tag in phrase_extract:
-            # if parent is a p, then it is a company name(some exceptions)
-            if tag.parent.name == 'p':
-                # add company name to the list
-                companies.append(tag.text.strip())
-        # remove some links (login/signup) which are not company names
-        companies = companies[2:-3]
+    # get all hyperlinks
+    hyperlinks = soup.findAll('a')
+    if len(hyperlinks) == 0:
+        return "error", "error"
+    for tag in hyperlinks:
+        # if parent is a p, then it is a company name(some exceptions)
+        if tag.parent.name == 'p':
+            # add company name to the list
+            companies.append(tag.text.strip())
+    # remove some links (login/signup) which are not company names
+    companies = companies[2:-3]
 
-        # find all a tags with class jp_applyButton
-        phrase_extract3 = soup.findAll('a', class_="jp_applyButton")
-        for tag in phrase_extract3:
-            # Add the link to the list
-            links.append("https://jobcentrebrunei.gov.bn" + tag["href"])
+    # find all a tags with class jp_applyButton
+    apply_links = soup.findAll('a', class_="jp_applyButton")
+    if len(apply_links) == 0:
+        return "error", "error"
+    for tag in apply_links:
+        # Add the link to the list
+        links.append("https://jobcentrebrunei.gov.bn" + tag['href'])
 
-        for job, salary, company, link in  zip(job_titles, job_salaries, companies, links):
-            jobdict = {'name': job.text.strip(),  'salary': salary.text.strip().removesuffix("Monthly"), 'company': company, 'link': link}
-            jobs.append(jobdict)
+    for job, salary, company, link in  zip(job_titles, job_salaries, companies, links):
+        jobdict = {'name': job.text.strip(),  'salary': salary.text.strip().removesuffix("Monthly"), 'company': company, 'link': link}
+        jobs.append(jobdict)
 
-        # Get last page number to find out total no. of pages
-        pagination['pages'] = int(soup.select('a.page-link')[-2].text.replace("Page", ""))
-        # Get total no of jobs available
-        pagination['total'] = soup.select_one('p.pagination-results').text
+    # Get last page number to find out total no. of pages
+    pagination['pages'] = int(soup.select('a.page-link')[-2].text.replace("Page", ""))
+    # Get total no of jobs available
+    pagination['total'] = soup.select_one('p.pagination-results').text
 
-        return jobs, pagination
+    return jobs, pagination
 
-        
+    
